@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:local": "nodemon server.js --local",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/jakelauer/teslafy/issues"
   },
-  "homepage": "https://github.com/jakelauer/teslafy#readme"
+  "dependencies": {
+    "spotify-web-api-node": "5.0.2",
+    "teslajs": "^4.9.8",
+    "express": "^4.17.1",
+    "compression": "^1.7.4",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "nodemon": "^2.0.7"
+  }
 }
