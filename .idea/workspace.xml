@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.ebextensions/cloudwatch.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.ebextensions/nginx.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.ebextensions/node.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.ebextensions/sockets.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vehicle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socketlog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ebextensions/cloudwatch.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ebextensions/node.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ebextensions/sockets.config" beforeDir="false" afterPath="$PROJECT_DIR$/.ebextensions/sockets.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/vehicle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +33,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.ebextensions" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jakel\source\repos\teslafy\.ebextensions" />
       <recent name="C:\Users\jakel\source\repos\teslafy" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start:local" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:local" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="yarn" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -46,7 +64,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617657033279</updated>
-      <workItem from="1617657034411" duration="10850000" />
+      <workItem from="1617657034411" duration="11131000" />
+      <workItem from="1617735962447" duration="14771000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1617657258809</created>
@@ -55,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617657258809</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first">
+      <created>1617693873660</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617693873660</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,8 +96,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/vehicle.js</url>
-          <line>17</line>
-          <properties lambdaOrdinal="-1" />
+          <line>18</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

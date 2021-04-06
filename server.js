@@ -4,6 +4,11 @@ const express = require("express");
 const compression = require("compression");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const {socketError} = require("./socketlog");
+const {socketLog, initSocketLog} = require("./socketlog");
+const fs = require("fs");
+const path = require("path");
+const {socketMessages} = require("./socketlog");
 
 const args = process.argv.slice(2);
 const isLocal = args[0] === "--local";
@@ -17,15 +22,16 @@ app.use(bodyParser.json({
 }));
 app.use(bodyParser.urlencoded({extended: true}));
 
+initSocketLog(isLocal, app)
+
 const spot = new SpotifyWebApi({
     clientId: "f628f0bfb38b4285a37c840bed345307",
     id: "f628f0bfb38b4285a37c840bed345307",
     clientSecret: "dcb3a3dff35044cf841cee708b823d17",
-    redirectUri: isLocal ? "http://jlauer.local:5000/auth" : "http://teslafy.jakelauer.dev/auth"
+    redirectUri: isLocal ? "http://jlauer.local:8081/auth" : "http://teslafy.jakelauer.dev/auth"
 });
 
-
-app.get("/", (req, res) => {
+app.get("/start", (req, res) => {
     const authorizeUrl = spot.createAuthorizeURL(
         ["user-read-currently-playing", "user-read-playback-state"]
     );
@@ -40,7 +46,7 @@ app.get("/auth", (req, res) => {
         spot.setAccessToken(data.body['access_token']);
         spot.setRefreshToken(data.body['refresh_token']);
 
-        refresh().then(() => res.redirect("/status"));
+        refresh().then(() => res.redirect("/"));
     })
 });
 
@@ -53,13 +59,32 @@ app.get("/status", async (req, res) => {
     let code = await isUserPlayingMusic() ? 200 : 500;
 
     res.status(code).send("");
-})
+});
+
+app.get("/", (req, res) => {
+    if (!spot.getRefreshToken()) {
+        res.redirect("/start");
+        return;
+    }
+
+    const html = fs.readFileSync(path.join(__dirname, "./index.html"), "utf-8");
+    const messagesRendered = socketMessages.map(m => `<div>${m}</div>`)
+
+    const rendered = html.replace(`<pre id="messagebox"></pre>`, `<pre id="messagebox">${messagesRendered.join("")}</pre>`)
+
+    res.send(rendered);
+});
 
 const isUserPlayingMusic = async () => {
-    const state = await spot.getMyCurrentPlaybackState();
+    if (!spot.getRefreshToken()) {
+        socketError("Visit /start to initialize Spotify");
+
+        return false;
+    }
 
     let code = 500;
     try {
+        const state = await spot.getMyCurrentPlaybackState();
         if (state.body.is_playing) {
             code = 200;
         }
@@ -77,9 +102,9 @@ app.get("/car", async (req, res) => {
 })
 
 const refresh = () => {
-    console.log('Refreshing Access Token');
+    socketLog('Refreshing Access Token');
     return spot.refreshAccessToken().then(data => {
-        console.log('The access token has been refreshed!');
+        socketLog('The access token has been refreshed!');
 
         spot.setAccessToken(data.body['access_token']);
 
@@ -87,41 +112,51 @@ const refresh = () => {
     });
 }
 
-const teslaStatus = () => {
-    return new Promise((resolve) => {
-        getVehicle().then(vehicle => {
-            getVehicleStatus(vehicle).then(vd => {
-                resolve(vd);
-            });
-        });
+const teslaStatus = async () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const vehicle = await getVehicle();
+            if (!vehicle) {
+                reject("Cannot get vehicle");
+            } else {
+                const vehicleData = await getVehicleStatus(vehicle);
+                if (vehicleData) {
+                    resolve(vehicleData);
+                } else {
+                    reject("Cannot get vehicle data");
+                }
+            }
+        } catch (e) {
+            socketError(e);
+            reject(e);
+        }
     })
 }
 
 const checkStatus = async (lastStatus) => {
     const status = await teslaStatus();
+    const userBecamePresent = status.vehicle_state.is_user_present && (!lastStatus || !lastStatus.vehicle_state.is_user_present);
 
-    const userBecamePresent = status.vehicle_state.is_user_present && !lastStatus.vehicle_state.is_user_present;
-
-    console.log("User became present: " + userBecamePresent);
-
-    if (userBecamePresent) {
-        try {
-            const isPlaying = await isUserPlayingMusic();
-            console.log("Is playing: " + isPlaying);
-            if (isPlaying) {
-                await pause(status);
+    if (status && status.vehicle_state) {
+        const isPlaying = await isUserPlayingMusic();
+        socketLog("Is playing: " + isPlaying + ", userPresent: " + userBecamePresent);
+        if (userBecamePresent) {
+            try {
+                if (isPlaying) {
+                    await pause(status);
+                }
+            } catch (e) {
+                console.error(e);
             }
         }
-        catch(e)
-        {
-            console.error(e);
-        }
+    } else {
+        socketLog("No vehicle state");
     }
 
-    setTimeout(checkStatus, 1000);
+    setTimeout(() => checkStatus(status), 1000);
 }
 
-console.log("ATTEMPTING TO LISTEN ON PORT " + port);
+socketLog("ATTEMPTING TO LISTEN ON PORT " + port);
 app.listen(port);
 
 setTimeout(() => checkStatus(), 3000);

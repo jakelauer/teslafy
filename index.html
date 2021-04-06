@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+<pre id="messagebox"></pre>
+
+<script>
+    const {hostname, protocol, href} = location;
+    let messages = [];
+    const url = href.includes(".local")
+        ? `ws://${hostname}:8080`
+        : `wss://${hostname}`;
+    var ws = new WebSocket(url);
+    const box = document.getElementById("messagebox");
+    console.log(box);
+    ws.onmessage = (e) => {
+        console.log(e);
+        box.innerHTML = "";
+
+        messages.push(e);
+        if(messages.length > 50)
+        {
+            messages.shift();
+        }
+
+        messages.forEach(message => {
+            const m = document.createElement("div");
+            m.innerText = `${message.timeStamp}: ${message.data}`;
+            box.appendChild(m);
+        })
+    }
+</script>
+</body>
+</html>

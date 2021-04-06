@@ -1,4 +1,5 @@
 const tjs = require("teslajs");
+const {socketError} = require("./socketlog");
 
 let vehicle;
 let authToken;
@@ -29,18 +30,26 @@ const init = async () => {
 }
 
 const getVehicle = async () => {
-    return vehicle || await init();
+    try {
+        return vehicle || await init();
+    } catch (e) {
+        socketError(e);
+    }
 }
 
 const getVehicleStatus = async (vehicle) => {
-    console.log("vehi: " + vehi);
     return new Promise((resolve, reject) => {
         tjs.vehicleData({
             authToken: authToken,
             vehicleID: vehicle.id
         }, (err, vd) => {
-            resolve(vd);
-            err && reject(err);
+            if (err) {
+                reject(err);
+            } else if (vd) {
+                resolve(vd);
+            } else {
+                reject("Request succeeded but got no data")
+            }
         })
     })
 }
@@ -51,7 +60,7 @@ const pause = () => {
             tjs.mediaTogglePlayback({
                 authToken: authToken,
                 vehicleID: vehicle.id
-            })
+            }, resolve());
         })
     })
 };
