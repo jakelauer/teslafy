@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1qlbH1a8dLBXTi7ZERaFHlw9wGg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.ebextensions" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jakel\source\repos\teslafy\.ebextensions" />
+      <recent name="C:\Users\jakel\source\repos\teslafy" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jakel\source\repos\teslafy" />
+      <recent name="C:\Users\jakel\source\repos\teslafy\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start:local" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:local" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="yarn" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="" />
+      <created>1617657033279</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617657033279</updated>
+      <workItem from="1617657034411" duration="11131000" />
+      <workItem from="1617735962447" duration="29388000" />
+      <workItem from="1617899793405" duration="6663000" />
+    </task>
+    <task id="LOCAL-00001" summary="first">
+      <created>1617657258809</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617657258809</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first">
+      <created>1617693873660</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617693873660</updated>
+    </task>
+    <task id="LOCAL-00003" summary="All">
+      <created>1617753121357</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617753121357</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Move to heroku">
+      <created>1617753539234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617753539234</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Move to heroku">
+      <created>1617753690375</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617753690375</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Port 80">
+      <created>1617753808981</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617753808981</updated>
+    </task>
+    <task id="LOCAL-00007" summary="heroku port">
+      <created>1617753849132</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617753849132</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add logging">
+      <created>1617754020923</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617754020923</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix port">
+      <created>1617754137441</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617754137441</updated>
+    </task>
+    <task id="LOCAL-00010" summary="more logs">
+      <created>1617754337944</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617754337944</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update">
+      <created>1617774005340</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617774005340</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update">
+      <created>1617894870855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617894870855</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Refactor">
+      <created>1617895262280</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617895262280</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Refactor">
+      <created>1617899757013</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617899757013</updated>
+    </task>
+    <task id="LOCAL-00015" summary="FInal updates">
+      <created>1617900465716</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617900465716</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Readme">
+      <created>1617900551732</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617900551732</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Readme">
+      <created>1617900579781</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617900579781</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Make public">
+      <created>1617900888299</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617900888299</updated>
+    </task>
+    <task id="LOCAL-00019" summary="More readme">
+      <created>1617901048453</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617901048453</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Remove scratch">
+      <created>1617901093388</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617901093388</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Remove ebextensions">
+      <created>1617901184468</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1617901184468</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Remove bad commit">
+      <created>1617911448557</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617911448557</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first" />
+    <MESSAGE value="All" />
+    <MESSAGE value="Move to heroku" />
+    <MESSAGE value="Port 80" />
+    <MESSAGE value="heroku port" />
+    <MESSAGE value="Add logging" />
+    <MESSAGE value="Fix port" />
+    <MESSAGE value="more logs" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="FInal updates" />
+    <MESSAGE value="Readme" />
+    <MESSAGE value="Make public" />
+    <MESSAGE value="More readme" />
+    <MESSAGE value="Remove scratch" />
+    <MESSAGE value="Remove ebextensions" />
+    <MESSAGE value="Remove bad commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove bad commit" />
+  </component>
+</project>

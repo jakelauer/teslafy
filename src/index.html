@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+<pre id="messagebox"></pre>
+
+<script>
+    const box = document.getElementById("messagebox");
+    const update = () => {
+        fetch("/messages")
+            .then(r => r.json())
+            .then(r => {
+                box.innerHTML = "";
+                const messages = r;
+                console.log(messages);
+
+                messages.forEach(message => {
+                    const m = document.createElement("div");
+                    m.innerText = message;
+                    box.appendChild(m);
+                })
+
+                setTimeout(() => update(), 1000);
+            })
+    }
+
+    update();
+
+    //
+    // const url = href.includes(".local")
+    //     ? `ws://${hostname}`
+    //     : `wss://${hostname}`;
+    // var ws = new WebSocket(url);
+    // const box = document.getElementById("messagebox");
+    // console.log(box);
+    // ws.onmessage = (e) => {
+    //     console.log(e);
+    //     box.innerHTML = "";
+    //
+    //     messages.push(e);
+    //     if (messages.length > 50) {
+    //         messages.shift();
+    //     }
+    //
+    //     messages.forEach(message => {
+    //         const m = document.createElement("div");
+    //         m.innerText = `${message.timeStamp}: ${message.data}`;
+    //         box.appendChild(m);
+    //     })
+    // }
+</script>
+</body>
+</html>
