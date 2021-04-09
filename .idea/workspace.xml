@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/socketlog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/socketlog.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +79,7 @@
       <workItem from="1617657034411" duration="11131000" />
       <workItem from="1617735962447" duration="29388000" />
       <workItem from="1617899793405" duration="8651000" />
-      <workItem from="1617988533531" duration="1672000" />
+      <workItem from="1617988533531" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1617657258809</created>
@@ -239,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617911448557</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Bug fixes">
+      <created>1617990239870</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617990239870</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +266,7 @@
     <MESSAGE value="Remove scratch" />
     <MESSAGE value="Remove ebextensions" />
     <MESSAGE value="Remove bad commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove bad commit" />
+    <MESSAGE value="Bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
   </component>
 </project>
