@@ -89,7 +89,7 @@ const checkAndTryPause = async (lastStatus) => {
 
 		const userBecamePresent =
 			(status && status.vehicle_state && status.vehicle_state.is_user_present) &&
-			(!lastStatus || !lastStatus.vehicle_state.is_user_present);
+			(lastStatus && !lastStatus.vehicle_state.is_user_present);
 
 		const now = Date.now();
 
@@ -109,20 +109,21 @@ const checkAndTryPause = async (lastStatus) => {
 			const timeSinceLastDetectedUser = now - lastDetectedUser;
 			const timeSinceLastTookAction = now - lastTookAction;
 
-			const delta = Math.abs(timeSinceLastDetectedPlaying - timeSinceLastDetectedUser);
+			const withinDelta = timeSinceLastDetectedPlaying < 3000 && timeSinceLastDetectedUser < 3000;
 			socketLog({
 				timeSinceLastDetectedPlaying,
 				timeSinceLastDetectedUser,
 				timeSinceLastTookAction,
-				delta
+				shouldPause: withinDelta && timeSinceLastTookAction > 20 * 1000
 			});
 
-			if (delta < 3000 && timeSinceLastTookAction > 20 * 1000)
+			if (withinDelta && timeSinceLastTookAction > 20 * 1000)
 			{
 				const prettyLastAction = (timeSinceLastTookAction / 1000).toFixed(2);
 				lastTookAction = now;
 
-				socketLog(`Detected pausable. Delta between detected events was ${delta}. Last action taken was ${prettyLastAction} seconds ago. Pausing!`);
+				socketLog(`Detected pausable. Last action taken was ${prettyLastAction} seconds ago. Pausing!`);
+
 				await pause(status);
 			}
 		}

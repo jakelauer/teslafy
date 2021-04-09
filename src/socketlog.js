@@ -1,6 +1,12 @@
 const moment = require("moment/moment")
+const fs = require("fs");
+const path = require("path");
 
+let allMessages = [];
 let socketMessages = [];
+let filename = `../logs/log_${Date.now()}.log`;
+const filePath = path.join(__dirname, filename);
+fs.writeFileSync(path.join(__dirname, filename), "");
 
 const doMessage = (messageString) => {
 	const withTimestamp = `${moment().format()} // ${messageString}`;
@@ -18,23 +24,31 @@ const doMessage = (messageString) => {
 		}
 	}
 
+	allMessages.push(withTimestamp);
 	socketMessages.push(withTimestamp);
 	if (socketMessages.length > 50)
 	{
 		socketMessages.shift();
 	}
+
+	fs.appendFile(filePath, withTimestamp + "\n", function (err) {
+		if (err) throw err;
+		console.log('Saved!');
+	});
 }
 
-const socketLog = (message) => {
+const socketLog = (message, verbose) => {
+	let vb = typeof verbose !== "undefined";
 	let messageString = typeof message === "string" ? message : JSON.stringify(message, null, 2);
 	console.log(message);
-	doMessage(messageString);
+	doMessage(messageString, vb);
 }
 
-const socketError = (message) => {
+const socketError = (message, verbose) => {
+	let vb = typeof verbose !== "undefined";
 	let messageString = typeof message === "string" ? message : JSON.stringify(message, null, 2);
 	console.error(`ERROR: ${messageString}`);
-	doMessage(messageString);
+	doMessage(messageString, vb);
 }
 
 module.exports = {

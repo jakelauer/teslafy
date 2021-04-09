@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/socketlog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/socketlog.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -49,11 +60,11 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="start:local" type="js.build_tools.npm" nameIsGenerated="true">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start:local" />
+        <script value="start" />
       </scripts>
       <node-interpreter value="project" />
       <package-manager value="yarn" />
@@ -71,7 +82,8 @@
       <updated>1617657033279</updated>
       <workItem from="1617657034411" duration="11131000" />
       <workItem from="1617735962447" duration="29388000" />
-      <workItem from="1617899793405" duration="6663000" />
+      <workItem from="1617899793405" duration="8651000" />
+      <workItem from="1617988533531" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1617657258809</created>

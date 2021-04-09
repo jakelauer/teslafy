@@ -11,8 +11,7 @@
             .then(r => r.json())
             .then(r => {
                 box.innerHTML = "";
-                const messages = r;
-                console.log(messages);
+                const messages = r.reverse();
 
                 messages.forEach(message => {
                     const m = document.createElement("div");

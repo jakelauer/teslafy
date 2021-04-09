@@ -27,7 +27,11 @@ app.get("/start", (req, res) => {
 
 	res.redirect(authorizeUrl);
 
-	checkAndTryPause();
+	checkAndTryPause({
+		vehicle_state:{
+			is_user_present: false
+		}
+	});
 });
 
 app.get("/auth", (req, res) => {
