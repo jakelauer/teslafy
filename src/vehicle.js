@@ -1,8 +1,8 @@
 const tjs = require("teslajs");
-const {teslaPassword} = require("./secrets");
-const {teslaUsername} = require("./secrets");
+const {prefs} = require("./preferences");
 const {socketLog} = require("./socketlog");
 const {socketError} = require("./socketlog");
+const prompt = require("electron-prompt")
 
 let vehicle;
 let authToken;
@@ -64,21 +64,31 @@ const getLoginFromTeslaOrCached = () => {
 		}
 		else
 		{
-			socketLog("LOGGING IN FOR REAL");
-			tjs.login({
-				username: teslaUsername,
-				password: teslaPassword,
-			}, (err, result) => {
-				if (err)
-				{
-					socketLog("Failed to login");
-					reject(err)
+			const username = prefs.value("Settings.teslaUsername");
+			prompt({
+				title: "Tesla Login",
+				label: "Password:",
+				value: "",
+				inputAttrs: {
+					type: "password"
 				}
+			}).then(pw => {
+				socketLog("LOGGING IN FOR REAL");
+				tjs.login({
+					username: username,
+					password: pw,
+				}, (err, result) => {
+					if (err)
+					{
+						socketLog("Failed to login");
+						reject(err)
+					}
 
-				data = storeNewData(result);
+					data = storeNewData(result);
 
-				resolve(data);
-			});
+					resolve(data);
+				});
+			})
 		}
 	})
 }

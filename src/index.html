@@ -1,52 +1,73 @@
 <html>
 <head>
+    <title>Teslafy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 1rem;
+        }
+
+        pre {
+            padding: 1rem;
+            border: 1px solid black;
+        }
+
+        #buttons {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
+<div id="buttons">
+    <a href="/restart" type="button" class="btn btn-primary">Reboot</a>
+</div>
+
 <pre id="messagebox"></pre>
 
 <script>
-    const box = document.getElementById("messagebox");
-    const update = () => {
-        fetch("/messages")
-            .then(r => r.json())
-            .then(r => {
-                box.innerHTML = "";
-                const messages = r.reverse();
+	const box = document.getElementById("messagebox");
+	const update = () => {
+		fetch("/messages")
+			.then(r => r.json())
+			.then(r => {
+				box.innerHTML = "";
+				const messages = r.reverse();
 
-                messages.forEach(message => {
-                    const m = document.createElement("div");
-                    m.innerText = message;
-                    box.appendChild(m);
-                })
+				messages.forEach(message => {
+					const m = document.createElement("div");
+					m.innerText = message;
+					box.appendChild(m);
+				})
 
-                setTimeout(() => update(), 1000);
-            })
-    }
+				setTimeout(() => update(), 1000);
+			})
+	}
 
-    update();
+	update();
 
-    //
-    // const url = href.includes(".local")
-    //     ? `ws://${hostname}`
-    //     : `wss://${hostname}`;
-    // var ws = new WebSocket(url);
-    // const box = document.getElementById("messagebox");
-    // console.log(box);
-    // ws.onmessage = (e) => {
-    //     console.log(e);
-    //     box.innerHTML = "";
-    //
-    //     messages.push(e);
-    //     if (messages.length > 50) {
-    //         messages.shift();
-    //     }
-    //
-    //     messages.forEach(message => {
-    //         const m = document.createElement("div");
-    //         m.innerText = `${message.timeStamp}: ${message.data}`;
-    //         box.appendChild(m);
-    //     })
-    // }
+	//
+	// const url = href.includes(".local")
+	//     ? `ws://${hostname}`
+	//     : `wss://${hostname}`;
+	// var ws = new WebSocket(url);
+	// const box = document.getElementById("messagebox");
+	// console.log(box);
+	// ws.onmessage = (e) => {
+	//     console.log(e);
+	//     box.innerHTML = "";
+	//
+	//     messages.push(e);
+	//     if (messages.length > 50) {
+	//         messages.shift();
+	//     }
+	//
+	//     messages.forEach(message => {
+	//         const m = document.createElement("div");
+	//         m.innerText = `${message.timeStamp}: ${message.data}`;
+	//         box.appendChild(m);
+	//     })
+	// }
 </script>
 </body>
 </html>

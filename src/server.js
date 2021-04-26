@@ -5,11 +5,16 @@ const bodyParser = require("body-parser");
 const {socketLog} = require("./socketlog");
 const fs = require("fs");
 const path = require("path");
+const {restart} = require("./electron");
+const {electronApp} = require("./electron");
+const {socketError} = require("./socketlog");
 const {isUserPlayingMusic, teslaStatus, checkAndTryPause, refreshSpotifyTokens, spotifyClient} = require("./engine");
 const {socketMessages} = require("./socketlog");
+const { exec } = require("child_process");
+const prefs = require("./preferences").prefs;
 
 const app = express();
-const port = process.env.port || process.env.PORT || 9988;
+const port = process.env.port || process.env.PORT || prefs.value("Settings.port") || 9988;
 app.use(compression());
 app.use(cookieParser());
 app.use(
@@ -19,11 +24,37 @@ app.use(
 );
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.get("/restart", (req, res) => {
+	if(electronApp){
+		restart()
+	}
+	else
+	{
+		res.redirect("/start");
+
+		exec("forever restartall", (error, stdout, stderr) => {
+			if (error)
+			{
+				socketError(`error: ${error.message}`);
+				return;
+			}
+			if (stderr)
+			{
+				socketLog(`stderr: ${stderr}`);
+				return;
+			}
+			socketLog(`stdout: ${stdout}`);
+		});
+	}
+})
+
 app.get("/start", (req, res) => {
-	const authorizeUrl = spotifyClient.createAuthorizeURL([
+	let authorizeUrl = spotifyClient.createAuthorizeURL([
 		"user-read-currently-playing",
 		"user-read-playback-state",
 	]);
+
+	console.log(authorizeUrl);
 
 	res.redirect(authorizeUrl);
 
@@ -69,7 +100,7 @@ app.get("/", (req, res) => {
 
 	const rendered = html.replace(
 		`<pre id="messagebox"></pre>`,
-		`<pre id="messagebox">${messagesRendered.join("")}</pre>`
+		`<pre id="messagebox">${messagesRendered.reverse().join("")}</pre>`
 	);
 
 	res.send(rendered);
@@ -85,5 +116,5 @@ app.get("/messages", async (req, res) => {
 	res.send(socketMessages);
 });
 
-socketLog("ATTEMPTING TO LISTEN ON PORT " + port + ". Go to / to start");
+socketLog(`Starting on port ${port}.`);
 app.listen(port);

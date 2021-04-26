@@ -1,22 +1,28 @@
 const SpotifyWebApi = require("spotify-web-api-node");
-const {spotifyClientId, spotifyClientSecret, spotifyRedirectUrl} = require("./secrets");
 const {getVehicleStatus} = require("./vehicle");
 const {getVehicle} = require("./vehicle");
 const {socketError} = require("./socketlog");
 const {pause} = require("./vehicle");
 const {socketLog} = require("./socketlog");
+const {prefs} = require("./electron");
 
+const spotifyClientId = prefs.value("Settings.spotifyClientId");
+const spotifyClientSecret = prefs.value("Settings.spotifyClientSecret");
+const port = prefs.value("Settings.port");
+const redirectUri = `http://localhost:${port}/auth`;
+
+console.log(spotifyClientId, spotifyClientSecret, port, redirectUri);
 const spotifyClient = new SpotifyWebApi({
 	clientId: spotifyClientId,
 	clientSecret: spotifyClientSecret,
-	redirectUri: spotifyRedirectUrl
+	redirectUri
 });
+
+let musicError = null;
 
 const isUserPlayingMusic = async () => {
 	if (!spotifyClient.getRefreshToken())
 	{
-		socketError("Visit /start to initialize Spotify");
-
 		return false;
 	}
 
@@ -28,8 +34,10 @@ const isUserPlayingMusic = async () => {
 		{
 			playing = true;
 		}
+		musicError = null;
 	} catch (e)
 	{
+		musicError = e;
 		console.error(e);
 	}
 
@@ -80,8 +88,11 @@ const teslaStatus = async () => {
 let lastDetectedPlaying = 0;
 let lastDetectedUser = 0;
 let lastTookAction = 0;
+let checkTimeout = 0;
 const checkAndTryPause = async (lastStatus) => {
 	let status;
+	clearTimeout(checkTimeout);
+
 	try
 	{
 		status = await teslaStatus();
@@ -136,14 +147,7 @@ const checkAndTryPause = async (lastStatus) => {
 		socketError(e);
 	}
 
-	if (!spotifyClient.getRefreshToken())
-	{
-		socketError("Visit /start to initialize Spotify");
-	}
-	else
-	{
-		setTimeout(() => checkAndTryPause(status), 500);
-	}
+	checkTimeout = setTimeout(() => checkAndTryPause(status), 500);
 };
 
 module.exports = {

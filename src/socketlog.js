@@ -47,7 +47,6 @@ const doMessage = (messageString) => {
 
 	fs.appendFile(filePath, withTimestamp + "\n", function (err) {
 		if (err) throw err;
-		console.log('Saved!');
 	});
 }
 
