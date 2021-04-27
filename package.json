@@ -7,6 +7,7 @@
     "run": "node src/server.js",
     "electron": "electron ./src/main.js",
     "build": "electron-packager ./ Teslafy --out=./dist --platform=win32 --override",
+    "build:all": "electron-packager ./ Teslafy --out=./dist -all --override",
     "start": "forever start src/server.js",
     "stop": "forever stop src/server.js",
     "restart": "forever restart src/server.js"

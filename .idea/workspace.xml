@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb2abb2-36e6-4698-8c2a-60025d54883c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/electron.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/preferences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teslafy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teslafy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/socketlog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/socketlog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +111,7 @@
       <workItem from="1619135781662" duration="3385000" />
       <workItem from="1619459389583" duration="191000" />
       <workItem from="1619459596557" duration="5601000" />
-      <workItem from="1619468130658" duration="3621000" />
+      <workItem from="1619468130658" duration="4208000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1617657258809</created>
@@ -292,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617990535216</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Adding electron support">
+      <created>1619476513963</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1619476513964</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +314,8 @@
     <MESSAGE value="Remove bad commit" />
     <MESSAGE value="Bug fixes" />
     <MESSAGE value="Split log files by day" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split log files by day" />
+    <MESSAGE value="Adding electron support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding electron support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
