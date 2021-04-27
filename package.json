@@ -1,7 +1,7 @@
 {
   "name": "teslafy",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "I wrote this little Electron application so that I could automatically pause Spotify in my Tesla Model Y when it autoplays and I get in the car.",
   "main": "src/main.js",
   "scripts": {
     "run": "node src/server.js",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/jakelauer/teslafy.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jakelauer/teslafy/issues"
   },
