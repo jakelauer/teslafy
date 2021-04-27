@@ -7,7 +7,11 @@ This polls the Spotify and Tesla APIs and detects the situation in question this
 - Check if user is detected by the car
 - If (time_music_detected) and (time_user_detected) are less than 3 seconds apart, then (pause).
 
-# How to use
+# Supported platforms
+- Windows x64
+- Theoretically, any platform would work, but I only have Windows. Others can feel free to test it out yourself!
+
+# How to install and run
 - Head to https://github.com/jakelauer/teslafy/releases and download the most recent package
 - Unzip it somewhere (maybe Program Files?)
 - Run "Teslafy.exe" in the unzipped file
@@ -15,3 +19,9 @@ This polls the Spotify and Tesla APIs and detects the situation in question this
 
 # How do I get a Spotify client ID and secret?
 - Follow instructions here: http://support.heateor.com/get-spotify-client-id-client-secret/
+
+# Contributing
+- Clone the repo!
+- Run `yarn install` to install dependencies
+- Run `yarn electron` to start the project
+- Run `yarn build` to build Windows or `yarn build:all` to build all platforms
