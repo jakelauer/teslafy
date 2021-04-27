@@ -1,5 +1,8 @@
 # Teslafy
 
+![image](https://user-images.githubusercontent.com/3980400/116165607-1237c880-a6b1-11eb-92ac-56680d0a9f29.png)
+
+
 I wrote this little Electron application so that I could automatically pause Spotify in my Tesla Model Y when it autoplays and I get in the car.
 
 This polls the Spotify and Tesla APIs and detects the situation in question this way:
